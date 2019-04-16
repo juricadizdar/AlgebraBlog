@@ -11,10 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (){
+    return view('home');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*############## BEGIN ADMIN ROUTES ##############*/
+Route::prefix('admin')->group(function () {
+	
+	// Dashboard Routes //
+	Route::get('/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
+	
+	// Post Routes //
+	Route::resource('posts', 'Admin\PostController');
+});
+/*############## END ADMIN ROUTES ##############*/
+

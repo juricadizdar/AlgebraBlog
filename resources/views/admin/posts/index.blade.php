@@ -5,8 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">All posts</div>
-
+                <div class="card-header">
+					All posts
+				
+				<a href="{{ route('posts.create') }}" class="btn btn-primary btn-sm float-right">Create new</a>
+				</div>
                 <div class="card-body">
                     @if($posts->count() > 0)
 						<table class="table">

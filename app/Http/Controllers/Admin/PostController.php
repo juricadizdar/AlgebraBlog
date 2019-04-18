@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\PostService;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -44,17 +45,20 @@ class PostController extends Controller
     public function create()
     {
         //
+		return $this->postService->createPost();
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Request\PostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        
+		//dd($request);
+		return $this->postService->storePost($request);
     }
 
     /**
